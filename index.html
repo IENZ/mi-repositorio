@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		
+		function ejecutarajax()
+		{
+			conexion = new XMLHttpRequest();
+			var conexion;
+			conexion.onreadystatechange=function()
+			{
+				if(conexion.readyState==4 && conexion.status==200)
+				{
+					document.getElementById("midiv").innerHTML = conexion.responseText;
+				}
+
+			}
+			conexion.open("GET", "ejemplo.txt", true);
+			conexion.send();
+		}
+	</script>
+</head>
+<body>
+	<h1>Prueba</h1>
+	<div id="midiv"></div>
+	<button type="button" onclick="ejecutarajax()">Ejecutar</button>
+</body>
+</html>
